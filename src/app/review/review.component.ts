@@ -10,6 +10,7 @@ import Swal from 'sweetalert2';
   templateUrl: './review.component.html',
   styleUrls: ['./review.component.scss'],
 })
+
 export class ReviewComponent implements OnInit {
 
   folderlist:any=[];
