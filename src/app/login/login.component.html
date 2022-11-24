@@ -1,0 +1,30 @@
+<body>
+  <section>
+    <div class="imgBx">
+      <img src="assets/images/i4.png">
+      </div>
+      <div class="contentBx">
+          <form class="reg" #userForm="ngForm" (ngSubmit)="onsubmit(userForm)" enctype="multipart/form-data">
+        <div class="formBx">
+          <h2>Log in</h2>
+            <div class="inputBx">
+          <label for="email">Email Id</label> &nbsp;&nbsp;&nbsp;
+          <input type="email" id="email" name="email"  placeholder="example@xyz.com" required [(ngModel)]="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$">
+          </div>
+          <div class="inputBx">
+          <label for="pswd">Password</label> &nbsp;
+          <input type="password" name="pswd" required [(ngModel)]="password"/>
+          </div>
+          <div class="inputBx">
+          <input class="br-tag" [disabled]="userForm.invalid" type="submit" value="Sign In"/>&nbsp;
+          
+           <a class="nav-link" href="/forgotPswd" (click)="goToPage('forgotPswd');">Forgotten Password ?</a>
+           </div>
+           <div class="inputPx">
+              <input class="br-tag" (click)="goToPage('register')" type="submit" value="Create New Account"/>&nbsp;
+              </div>
+        </div>
+        </form>
+      </div>
+  </section>
+</body>

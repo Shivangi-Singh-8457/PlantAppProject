@@ -1,0 +1,17 @@
+<div mat-dialog-content>
+  <mat-form-field appearance="fill">
+  <mat-label>Select</mat-label>
+    <mat-select [(ngModel)]="data.report_reason">
+      <mat-option value="one" ngDefaultControl>Spam advertising</mat-option>
+      <mat-option value="two" ngDefaultControl>Violent content</mat-option>
+      <mat-option value="three" ngDefaultControl>Promotes terrorism</mat-option>
+      <mat-option value="four" ngDefaultControl>Illegal content</mat-option>
+      <mat-option value="five" ngDefaultControl>Abuse others</mat-option>
+      <mat-option value="six" ngDefaultControl>Others</mat-option>
+    </mat-select>
+  </mat-form-field> 
+</div> 
+<div mat-dialog-actions>
+  <button mat-button (click)="onNoClick()">Cancel</button> &nbsp; &nbsp; &nbsp; &nbsp;
+  <button mat-button [mat-dialog-close]="data.report_reason" cdkFocusInitial>Ok</button>
+</div> 

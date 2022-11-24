@@ -1,0 +1,193 @@
+<div class="detect-body">
+  <div class="heading">
+    <p>
+      Here i am going to ask you some questions about the leaf that you
+      have.<br />
+      You have to observe that leaf and answer these following questions
+      accordingly:-
+    </p>
+  </div>
+  <div class="question row">
+
+    <div class="container-fluid ">
+      <div class="question1">
+        <p>select leaf apices of leaf that you have ?</p>
+        <input type="radio" name="leaf_apicies" id="accuminate" class="input-hidden"
+          (click)="display('leaf_apicies','acuminate')" value="acuminate" />
+        <label for="accuminate">
+          <img src="assets/images/leaf part image/leaf_apices/accuminate.jpg" alt="I'm happy" />
+        </label>
+
+        <input type="radio" name="leaf_apicies" id="rounded" class="input-hidden"
+          (click)="display('leaf_apicies','rounded')" value="rounded" />
+        <label for="rounded">
+          <img src="assets/images/leaf part image/leaf_apices/rounded.jpg" alt="I'm happy" />
+        </label>
+
+        <input type="radio" name="leaf_apicies" id="obtuse" class="input-hidden"
+          (click)="display('leaf_apicies','obtuse')" value="obtuse" />
+        <label for="obtuse">
+          <img src="assets/images/leaf part image/leaf_apices/obtuse.jpg" alt="I'm happy" />
+        </label>
+
+        <input type="radio" name="leaf_apicies" id="acute" class="input-hidden"
+          (click)="display('leaf_apicies','acute')" value="acute" />
+        <label for="acute">
+          <img src="assets/images/leaf part image/leaf_apices/acute.jpg" alt="I'm happy" />
+        </label>
+        <div>
+          <button type="button" class="btn btn-light btn-lg download-button btn-green" (click)="goToPage('learn');">
+            <i class="fab fa-envira"></i> learn about leaf apicies
+          </button>
+        </div>
+
+      </div>
+      <div class="question2">
+        <p>select leaf basics of leaf that you have ?</p>
+        <input type="radio" name="leaf_bases" id="cuneate" class="input-hidden"
+          (click)="display('leaf_bases','cuneate')" value="cuneate" />
+        <label for="cuneate">
+          <img src="assets/images/leaf part image/leaf_bases/cuneate.jpg" alt="I'm sad" />
+        </label>
+
+        <input type="radio" name="leaf_bases" id="rounded_bases" class="input-hidden"
+          (click)="display('leaf_bases','rounded')" value="rounded" />
+        <label for="rounded_bases">
+          <img src="assets/images/leaf part image/leaf_bases/rounded.jpg" alt="I'm happy" />
+        </label>
+
+        <input type="radio" name="leaf_bases" id="cordate" class="input-hidden"
+          (click)="display('leaf_bases','cordate')" value="cordate" />
+        <label for="cordate">
+          <img src="assets/images/leaf part image/leaf_bases/cordate.jpg" alt="I'm happy" />
+        </label>
+
+        <input type="radio" name="leaf_bases" id="acute_bases" class="input-hidden"
+          (click)="display('leaf_bases','acute')" value="acute" />
+        <label for="acute_bases">
+          <img src="assets/images/leaf part image/leaf_bases/acute.jpg" alt="I'm happy" />
+        </label>
+
+        <input type="radio" name="leaf_bases" id="auriculate" class="input-hidden"
+          (click)="display('leaf_bases','auriculate')" value="auriculate" />
+        <label for="auriculate">
+          <img src="assets/images/leaf part image/leaf_bases/auriculate.jpg" alt="I'm happy" />
+        </label>
+
+        <input type="radio" name="leaf_bases" id="attenuate" class="input-hidden"
+          (click)="display('leaf_bases','attenuate')" value="attenuate" />
+        <label for="attenuate">
+          <img src="assets/images/leaf part image/leaf_bases/attenuate.jpg" alt="I'm happy" />
+        </label>
+
+        <input type="radio" name="leaf_bases" id="hastate" class="input-hidden"
+          (click)="display('leaf_bases','hastate')" value="hastate" />
+        <label for="hastate">
+          <img src="assets/images/leaf part image/leaf_bases/hastate.jpg" alt="I'm happy" />
+        </label>
+
+        <input type="radio" name="leaf_bases" id="oblique" class="input-hidden"
+          (click)="display('leaf_bases','oblique')" value="oblique" />
+        <label for="oblique">
+          <img src="assets/images/leaf part image/leaf_bases/oblique.jpg" alt="I'm happy" />
+        </label>
+        <div>
+          <button type="button" class="btn btn-light btn-lg download-button btn-green" (click)="goToPage('learn');">
+            <i class="fab fa-envira"></i> learn about leaf bases
+          </button>
+        </div>
+      </div>
+      <div class="question3">
+        <p>select leaf margin of leaf that you have ?</p>
+        <input type="radio" name="margin" id="serrate" class="input-hidden" (click)="display('leaf_margin','serrate')"
+          value="serrate" />
+        <label for="serrate">
+          <img src="assets/images/leaf part image/leaf_margin/serrate.jpg" alt="I'm happy" />
+        </label>
+
+        <input type="radio" name="margin" id="entire" class="input-hidden" (click)="display('leaf_margin','entire')"
+          value="entire" />
+        <label for="entire">
+          <img src="assets/images/leaf part image/leaf_margin/entire.jpg" alt="I'm happy" />
+        </label>
+
+        <input type="radio" name="margin" id="undulate" class="input-hidden" (click)="display('leaf_margin','undulate')"
+          value="undulate" />
+        <label for="undulate">
+          <img src="assets/images/leaf part image/leaf_margin/undulate.jpg" alt="I'm happy" />
+        </label>
+
+        <input type="radio" name="margin" id="sinuate" class="input-hidden" (click)="display('leaf_margin','sinuate')"
+          value="sinuate" />
+        <label for="sinuate">
+          <img src="assets/images/leaf part image/leaf_margin/sinuate.jpg" alt="I'm happy" />
+        </label>
+
+        <input type="radio" name="margin" id="doubly_serrate" class="input-hidden"
+          (click)="display('leaf_margin','doubly_serrate')" value="doubly_serrate" />
+        <label for="doubly_serrate">
+          <img src="assets/images/leaf part image/leaf_margin/doubly_serrate.jpg" alt="I'm happy" />
+        </label>
+
+        <input type="radio" name="margin" id="spinose" class="input-hidden" (click)="display('leaf_margin','spinose')"
+          value="spinose" />
+        <label for="spinose">
+          <img src="assets/images/leaf part image/leaf_margin/spinose.jpg" alt="I'm happy" />
+        </label>
+
+        <input type="radio" name="margin" id="serrulate" class="input-hidden"
+          (click)="display('leaf_margin','serrulate')" value="serrulate" />
+        <label for="serrulate">
+          <img src="assets/images/leaf part image/leaf_margin/serrulate.jpg" alt="I'm happy" />
+        </label>
+
+        <input type="radio" name="margin" id="lobed" class="input-hidden" (click)="display('leaf_margin','lobed')"
+          value="lobed" />
+        <label for="lobed">
+          <img src="assets/images/leaf part image/leaf_margin/lobed.jpg" alt="I'm happy" />
+        </label>
+
+        <input type="radio" name="margin" id="dentate" class="input-hidden" (click)="display('leaf_margin','dentate')"
+          value="dentate" />
+        <label for="dentate">
+          <img src="assets/images/leaf part image/leaf_margin/dentate.jpg" alt="I'm happy" />
+        </label>
+        <div>
+          <button type="button" class="btn btn-light btn-lg download-button btn-green" (click)="goToPage('learn');">
+            <i class="fab fa-envira"></i> learn about leaf margin
+          </button>
+        </div>
+      </div>
+    </div>
+
+
+    <div class=" result"> 
+      <div *ngIf="!key?.length && flag; else addleaf">
+        <h3 class="text">There is no leaf to show according to given properties Click on Add button if you want to add new </h3>
+        <div class="add">
+          <button type="button" class="btn btn-light btn-lg download-button btn-green"(click)="goToPage('addleaf');">
+            <i class="fab fa-envira"></i> Add Leaf
+          </button>
+          <button type="button" class="btn btn-light btn-lg download-button btn-green" (click)="goToPage('index');">
+            <i class="fab fa-envira"></i> Home  
+          </button>
+        </div>
+      </div>
+      <ng-template #addleaf>
+        <div *ngFor="let x of key">
+          <div id="imgresult">
+            {{x}}<br><br>
+            <div class="row">
+              <br>
+              <div class="card" class="col-auto" style="width: 15rem;" *ngFor="let pl of datalist[x]">
+                <img src="{{pl}}" class="card-img-top setimg" alt="...">
+                <div class="card-body">
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </ng-template>
+      </div>
+    </div>
+</div>

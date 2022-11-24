@@ -1,0 +1,50 @@
+
+<body>
+  <section>
+    <div class="imgBx">
+      <img src="assets/images/i4.png">
+      </div>
+      <div class="contentBx">
+        <form *ngIf="flag" class="reg" #userForm="ngForm" (ngSubmit)="onsubmit(userForm)" enctype="multipart/form-data">
+          <div class="formBx">
+            <h2>Reset your password</h2>
+            <div class="inputBx">
+              <label for="email">Email Id</label> &nbsp; 
+              <input type="email" id="email" name="email" placeholder="example@xyz.com" required [(ngModel)]="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$">
+            </div>
+            <br><p>{{email_msg}}</p>
+            <div class="inputBx">
+              <input class="br-tag" [disabled]="userForm.invalid" type="submit" value="Send otp"/>
+            </div>
+          </div>
+        </form> 
+        <form *ngIf="email_flag" class="reg" #otpForm="ngForm" (ngSubmit)="otpsubmit(otpForm)" enctype="multipart/form-data">
+          <div class="formBx">
+            <div class="inputBx">
+            <label for="otp">Enter OTP sent through email</label> <br><br>
+            <input type="text" name="otp" required [(ngModel)]="otp"/>
+            <br><p>{{otp_msg}}</p> 
+            </div>
+            <div class="inputBx">      
+              <input class="br-tag" [disabled]="otpForm.invalid" type="submit" value="Enter"/>
+            </div>
+            <div class="inputBx">
+              <input class="br-tag" type="submit" value="Resend" (click)="resend()"/>
+            </div>
+          </div>
+        </form>
+        <form *ngIf="otp_flag" class="reg" #pswdForm="ngForm" (ngSubmit)="pswdsubmit(pswdForm)" enctype="multipart/form-data">
+          <div class="formBx">
+            <div class="inputBx">
+              <label for="pswd">New Password</label> &nbsp;
+              <input type="password" name="pswd" required [(ngModel)]="password"/>
+            </div>
+            <br><br>
+            <div class="inputBx">
+              <input class="br-tag" [disabled]="pswdForm.invalid" type="submit" value="Submit"/>
+            </div>
+          </div>
+        </form>
+    </div>
+    </section>
+</body>

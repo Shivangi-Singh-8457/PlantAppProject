@@ -1,0 +1,173 @@
+<html>
+<body>
+  <div class="body">
+  <div class="heading">
+    <h3>
+      You have to observe that leaf and answer these following questions and
+      upload image of leaf accordingly:-
+    </h3>
+  </div>
+  <form class="body" #userForm="ngForm" (ngSubmit)="onsubmit()" enctype="multipart/form-data">
+    <div class="question row">
+      <div class="container-fluid col-lg-6">
+        <div class="question1">
+          <h4>Select leaf apices of leaf that you have ?</h4>
+          <input type="radio" name="leaf_apices" #name required [(ngModel)]="userModel.leaf_apices" id="accuminate"
+            class="input-hidden" value="acuminate" />
+          <label for="accuminate">
+            <img src="assets/images/leaf part image/leaf_apices/accuminate.jpg" alt="I'm happy" />
+          </label>
+
+          <input type="radio" name="leaf_apices" required [(ngModel)]="userModel.leaf_apices" id="rounded"
+            class="input-hidden" value="rounded" />
+          <label for="rounded">
+            <img src="assets/images/leaf part image/leaf_apices/rounded.jpg" alt="I'm happy" />
+          </label>
+
+          <input type="radio" name="leaf_apices" required [(ngModel)]="userModel.leaf_apices" id="obtuse"
+            class="input-hidden" value="obtuse" />
+          <label for="obtuse">
+            <img src="assets/images/leaf part image/leaf_apices/obtuse.jpg" alt="I'm happy" />
+          </label>
+
+          <input type="radio" name="leaf_apices" required [(ngModel)]="userModel.leaf_apices" id="acute"
+            class="input-hidden" value="acute" />
+          <label for="acute">
+            <img src="assets/images/leaf part image/leaf_apices/acute.jpg" alt="I'm happy" />
+          </label>
+
+        </div>
+        <br><br>
+        <div class="question2">
+          <h4>Select leaf basics of leaf that you have ?</h4>
+          <input type="radio" name="leaf_bases" required [(ngModel)]="userModel.leaf_bases" id="cuneate"
+            class="input-hidden" value="cuneate" />
+          <label for="cuneate">
+            <img src="assets/images/leaf part image/leaf_bases/cuneate.jpg" alt="I'm sad" />
+          </label>
+
+          <input type="radio" name="leaf_bases" required [(ngModel)]="userModel.leaf_bases" id="rounded_bases"
+            class="input-hidden" value="rounded" />
+          <label for="rounded_bases">
+            <img src="assets/images/leaf part image/leaf_bases/rounded.jpg" alt="I'm happy" />
+          </label>
+
+          <input type="radio" name="leaf_bases" required [(ngModel)]="userModel.leaf_bases" id="cordate"
+            class="input-hidden" value="cordate" />
+          <label for="cordate">
+            <img src="assets/images/leaf part image/leaf_bases/cordate.jpg" alt="I'm happy" />
+          </label>
+
+          <input type="radio" name="leaf_bases" required [(ngModel)]="userModel.leaf_bases" id="acute_bases" class="input-hidden"
+            value="acute" />
+          <label for="acute_bases">
+            <img src="assets/images/leaf part image/leaf_bases/acute.jpg" alt="I'm happy" />
+          </label>
+
+          <input type="radio" name="leaf_bases" required [(ngModel)]="userModel.leaf_bases" id="auriculate" class="input-hidden"
+            value="auriculate" />
+          <label for="auriculate">
+            <img src="assets/images/leaf part image/leaf_bases/auriculate.jpg" alt="I'm happy" />
+          </label>
+
+          <input type="radio" name="leaf_bases" required [(ngModel)]="userModel.leaf_bases" id="attenuate" class="input-hidden"
+            value="attenuate" />
+          <label for="attenuate">
+            <img src="assets/images/leaf part image/leaf_bases/attenuate.jpg" alt="I'm happy" />
+          </label>
+
+          <input type="radio" name="leaf_bases" required [(ngModel)]="userModel.leaf_bases" id="hastate" class="input-hidden"
+            value="hastate" />
+          <label for="hastate">
+            <img src="assets/images/leaf part image/leaf_bases/hastate.jpg" alt="I'm happy" />
+          </label>
+
+          <input type="radio" name="leaf_bases" required [(ngModel)]="userModel.leaf_bases" id="oblique" class="input-hidden"
+            value="oblique" />
+          <label for="oblique">
+            <img src="assets/images/leaf part image/leaf_bases/oblique.jpg" alt="I'm happy" />
+          </label>
+        </div>
+        <br><br>
+        <div class="question3">
+          <h4>Select leaf margin of leaf that you have ?</h4>
+          <input type="radio" name="margin" required [(ngModel)]="userModel.leaf_margin" id="serrate"
+            class="input-hidden" value="serrate" />
+          <label for="serrate">
+            <img src="assets/images/leaf part image/leaf_margin/serrate.jpg" alt="I'm happy" />
+          </label>
+
+          <input type="radio" name="margin" required [(ngModel)]="userModel.leaf_margin" id="entire" class="input-hidden"
+            value="entire" />
+          <label for="entire">
+            <img src="assets/images/leaf part image/leaf_margin/entire.jpg" alt="I'm happy" />
+          </label>
+
+          <input type="radio" name="margin" required [(ngModel)]="userModel.leaf_margin" id="undulate" class="input-hidden"
+            value="undulate" />
+          <label for="undulate">
+            <img src="assets/images/leaf part image/leaf_margin/undulate.jpg" alt="I'm happy" />
+          </label>
+
+          <input type="radio" name="margin" required [(ngModel)]="userModel.leaf_margin" id="sinuate" class="input-hidden"
+            value="sinuate" />
+          <label for="sinuate">
+            <img src="assets/images/leaf part image/leaf_margin/sinuate.jpg" alt="I'm happy" />
+          </label>
+
+          <input type="radio" name="margin" required [(ngModel)]="userModel.leaf_margin" id="doubly_serrate" class="input-hidden"
+            value="doubly_serrate" />
+          <label for="doubly_serrate">
+            <img src="assets/images/leaf part image/leaf_margin/doubly_serrate.jpg" alt="I'm happy" />
+          </label>
+
+          <input type="radio" name="margin" required [(ngModel)]="userModel.leaf_margin" id="spinose" class="input-hidden"
+            value="spinose" />
+          <label for="spinose">
+            <img src="assets/images/leaf part image/leaf_margin/spinose.jpg" alt="I'm happy" />
+          </label>
+
+          <input type="radio" name="margin" required [(ngModel)]="userModel.leaf_margin" id="serrulate" class="input-hidden"
+            value="serrulate" />
+          <label for="serrulate">
+            <img src="assets/images/leaf part image/leaf_margin/serrulate.jpg" alt="I'm happy" />
+          </label>
+
+          <input type="radio" name="margin" required [(ngModel)]="userModel.leaf_margin" id="lobed" class="input-hidden"
+            value="lobed" />
+
+          <label for="lobed">
+            <img src="assets/images/leaf part image/leaf_margin/lobed.jpg" alt="I'm happy" />
+          </label>
+
+          <input type="radio" name="margin" required [(ngModel)]="userModel.leaf_margin" id="dentate" class="input-hidden"
+            value="dentate" />
+          <label for="dentate">
+            <img src="assets/images/leaf part image/leaf_margin/dentate.jpg" alt="I'm happy" />
+          </label>
+          <h5>
+            You can learn about these properties <a href="/detect" >here</a> 
+          </h5>    
+        </div>
+        <div class="file-upload">
+          <label for="plant-name">Enter Plant Name</label> &nbsp;&nbsp;&nbsp;
+          <input type="text" id="plant" name="plant" required [(ngModel)]="plantName"/> <!-- (change)="onChangetext()" />-->
+          <br><br>
+          <label for="img">Select Plant Image</label>
+          <input type="file" class="input-b" required id="img" name="img" multiple accept=".jpg, .jpeg, .png" (change)="onChange($event)">
+           
+          <p>(Note:<br>1.Only jpg, png and jpeg images will be accepted <br>
+                   2.Atleast one image is required <br>
+                   3.Atmost 10 images will be accepted<br>
+                   4.Maximum image size must be 30MB )
+          </p>
+          <input  class="btn btn-light btn-lg download-button btn-green"  type="reset" value="Reset">
+          <input  class="btn btn-light btn-lg download-button btn-green"  [disabled]="userForm.invalid" type="submit" value="Submit"/>
+        </div>
+      </div>
+    </div>
+  </form>
+</div>
+
+</body>
+</html>

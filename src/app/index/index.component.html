@@ -1,0 +1,103 @@
+<section  id="title">
+  <div class="container-fluid">
+    <div class="navbar">
+      <a class="navbar-brand" href="/">Plantopedia</a>
+      <nav class="menubar1" id="menubar1">
+        <ul id="menulist">
+        <li >
+          <a  href="/about">About us</a>
+        </li>
+        <li >
+          <a  href="/refer">Refer us</a>
+        </li>
+        <li *ngIf="!login_flag; else logout">
+          <a href="/login">Login</a>
+        </li>
+        <ng-template #logout>
+        <li class="nav-item">
+        <a  href="/logout">Logout</a>
+        </li>
+      </ng-template>
+        </ul>
+     </nav>
+     <img src="/assets/images/menu.png" class="menu-icon" (click)="togglemenu()">
+    </div>
+    <!-- Title -->
+
+    <div class="row">
+      <div class="col-md-6">
+        <h1 class="first-txt">Find any plant by its leaf and information that you feel by seeing it.</h1>
+        <button type="button" class="btn btn-light btn-lg download-button btn-green" (click)="goToPage('detect');">
+          <i class="fab fa-envira"></i> Detect
+        </button>
+        <button type="button" class="btn btn-light btn-lg download-button btn-green"(click)="goToPage('addleaf');">
+          <i class="fab fa-envira"></i> Add Leaf
+        </button>
+        <button type="button" class="btn btn-light btn-lg download-button btn-green"(click)="goToPage('review');">
+          <i class="fab fa-envira"></i> Review
+        </button>
+      </div>
+      <div class="col-2">
+        <div class="img-container">
+          <img
+          class="tittle-image"
+          src="assets/images/plant1.jpg"
+          alt="iphone-mockup"
+        />
+        </div>
+        
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Features -->
+
+<section id="features">
+    <div class="row">
+      <div class="col-lg-4 features-box">
+        <i class="fas fa-check-circle fa-4x icon"> </i>
+        <h3>Interactive</h3>
+        <p>Interactive way to detect plant</p>
+      </div>
+      <div class="col-lg-4 features-box">
+        <i class="fas fa-bullseye fa-4x icon"> </i>
+        <h3>Nature</h3>
+
+        <p>We all are surrounded by several plants , do you want to detect them.</p>
+      </div>
+      <div class="col-lg-4 features-box">
+        <i class="fas fa-heart fa-4x icon"> </i>
+        <h3>Save plants</h3>
+        <p>In this era of construction we need to save plants to save nature and</p>
+      </div>
+    </div>
+</section>
+
+
+<!-- img section -->
+<div class="img-con">
+  <div class="carosel">
+    <div class="carosel-item">
+      <img src="/assets/images/baby_plant_img.jpg" alt="">
+    </div>
+    <div class="carosel-item">
+      <img src="/assets/images/blue rose.jpg" alt="">
+    </div>
+    <div class="carosel-item">
+      <img src="/assets/images/plant1.jpg" alt="">
+    </div>
+    <div class="carosel-item">
+      <img src="/assets/images/tree_image.jpg" alt="">
+    </div>
+    <div class="carosel-item">
+      <img src="/assets/images/tree_img2.jpg" alt="">
+    </div>
+    
+    
+  </div>
+</div>
+
+<footer id="footer">
+  <p>© Copyright 2022 plantopedia</p>
+</footer>

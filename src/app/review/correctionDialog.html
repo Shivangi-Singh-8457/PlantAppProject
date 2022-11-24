@@ -1,0 +1,63 @@
+<div mat-dialog-content>
+    <mat-form-field appearance="fill">
+      <mat-label>Select</mat-label>
+      <mat-select [(ngModel)]="data.feature">
+        <mat-option value="leaf_division" ngDefaultControl>Plant Name</mat-option>
+        <mat-option value="leaf_apices" ngDefaultControl>Apices</mat-option>
+        <mat-option value="leaf_bases" ngDefaultControl>Bases</mat-option>
+        <mat-option value="leaf_margin" ngDefaultControl>Margin</mat-option>
+      </mat-select>
+    </mat-form-field> 
+</div>
+<div *ngIf="data.feature=='leaf_division'">
+    <label>Enter correct plant name</label>
+    <input type="text" [(ngModel)]="data.corrected">
+</div> 
+<div *ngIf="data.feature=='leaf_apices'">
+    <mat-form-field appearance="fill">
+      <mat-label>Select</mat-label>  
+      <mat-select  [(ngModel)]="data.corrected">
+        <mat-option value="acuminate" ngDefaultControl>Acuminate</mat-option>
+        <mat-option value="rounded" ngDefaultControl>Rounded</mat-option>
+        <mat-option value="obtuse" ngDefaultControl>Obtuse</mat-option>
+        <mat-option value="acute" ngDefaultControl>Acute</mat-option>
+      </mat-select>
+    </mat-form-field> 
+</div>
+<div *ngIf="data.feature=='leaf_bases'">
+    <mat-form-field appearance="fill">
+      <mat-label>Select</mat-label>  
+      <mat-select  [(ngModel)]="data.corrected">
+        <mat-option value="cuneate" ngDefaultControl>Cuneate</mat-option>
+        <mat-option value="rounded" ngDefaultControl>Rounded</mat-option>
+        <mat-option value="cordate" ngDefaultControl>Cordate</mat-option>
+        <mat-option value="acute" ngDefaultControl>Acute</mat-option>
+        <mat-option value="auriculate" ngDefaultControl>Auriculate</mat-option>
+        <mat-option value="attenuate" ngDefaultControl>Attenuate</mat-option>
+        <mat-option value="hastate" ngDefaultControl>Hastate</mat-option>
+        <mat-option value="oblique" ngDefaultControl>Oblique</mat-option>
+      </mat-select>
+    </mat-form-field> 
+</div>
+<div *ngIf="data.feature=='leaf_margin'">
+    <mat-form-field appearance="fill">
+      <mat-label>Select</mat-label>  
+      <mat-select  [(ngModel)]="data.corrected">
+        <mat-option value="serrate" ngDefaultControl>Serrate</mat-option>
+        <mat-option value="entire" ngDefaultControl>Entire</mat-option>
+        <mat-option value="undulate" ngDefaultControl>Undulate</mat-option>
+        <mat-option value="sinuate" ngDefaultControl>Sinuate</mat-option>
+        <mat-option value="doubly-serrate" ngDefaultControl>Doubly-Serrate</mat-option>
+        <mat-option value="spinose" ngDefaultControl>Spinose</mat-option>
+        <mat-option value="serrulate" ngDefaultControl>Serrulate</mat-option>
+        <mat-option value="lobed" ngDefaultControl>Lobed</mat-option>
+        <mat-option value="dentate" ngDefaultControl>Dentate</mat-option>
+      </mat-select>
+    </mat-form-field> 
+</div>
+<div mat-dialog-actions>
+   <button mat-button (click)="onNoClick()">Cancel</button> &nbsp; &nbsp; &nbsp; &nbsp;
+   <button mat-button [mat-dialog-close]="[data.feature, data.corrected]" cdkFocusInitial>Ok</button>
+</div>
+  
+  

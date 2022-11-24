@@ -1,0 +1,120 @@
+.body
+{
+//     font-family: "montserrat";
+//     background: #06beb6;  /* fallback for old browsers */
+//     background: -webkit-linear-gradient(to right, #48b1bf, #06beb6);  /* Chrome 10-25, Safari 5.1-6 */
+//     background: linear-gradient(to right, #48b1bf, #06beb6); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */    
+background-color: #63d471;
+background-image: linear-gradient(315deg, #63d471 0%, #233329 74%);
+color:#fff;
+}
+h3{
+padding-right: 2rem;
+}
+.heading
+{
+  // background: #06beb6;  /* fallback for old browsers */
+  // background: -webkit-linear-gradient(to right, #48b1bf, #06beb6);  /* Chrome 10-25, Safari 5.1-6 */
+  // background: linear-gradient(to right, #48b1bf, #06beb6);
+  font-size:25px;
+  text-align: center;
+  padding-top:30px ;
+  padding-bottom: 20px;
+}
+.input-hidden {
+  position: absolute;
+  left: -9999px;
+}
+
+input[type=radio]:checked + label>img {
+  border: 1px solid #fff;
+  box-shadow: 0 0 3px 3px #090;
+}
+
+/* Stuff after this is only to make things more pretty */
+input[type=radio] + label>img {
+  border: 1px dashed #444;
+  width: 150px;
+  height: 150px;
+  transition: 500ms all;
+}
+
+input[type=radio]:checked + label>img {
+  transform:
+    rotateZ(-10deg)
+    rotateX(10deg);
+}
+
+/*container*/
+.container-fluid{
+    padding: 3% 5%;
+}
+/*result*/
+.setimg{
+  width:100%;
+  height:300px;
+  padding: 2px;
+  
+}
+.card 
+{
+  margin-top: 5px;
+}
+/* download button */
+.download-button
+{
+    margin: 5% 3% 5% 0%;
+}
+
+.file-upload{
+  margin-top: 30px;
+  border: 2px ;
+  color: #fff;
+  font-size: large;
+  font-family: sans-serif;
+  padding-left: 1rem;
+}
+// .br-tag{
+//   border: none;
+//   margin: 5px;
+//   background-color: #fff; 
+//  margin-left:  5rem;
+//   margin-top: 1rem;
+// }
+// .br-tag:hover{
+//   background-color: #4febc9
+// }
+.input-b{
+  padding-left: 0.5cm;
+  width: 20rem;
+}
+h6{
+  margin-top: 1rem;
+  padding-left: 10rem; 
+}
+p{
+ font-size: small;
+ padding-left: 10rem;
+ color:yellow;
+}
+.download-button
+{
+    margin: 5% 2% 5% 0%;
+    margin-left: 5rem;
+    height: 2rem;
+    padding-top: 0.2%;
+}
+
+.btn-green:hover{
+    background-color: #44be63;
+    color: white;
+}
+h5{
+  color: rgb(12, 239, 12);
+}
+a:link, a:visited{
+  color: white;  
+}
+a:hover{
+  color: rgb(236, 171, 74);
+}
