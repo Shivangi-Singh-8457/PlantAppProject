@@ -2,10 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { HttpClientService } from '../service/http-client.service';
 import {Router} from '@angular/router';
 import { User } from '../user';
-import { FormGroup, NgForm } from '@angular/forms';
-//import { Variable } from '@angular/compiler/src/render3/r3_ast';
 
-var baseData = "";
 const  maxsize=30*1024*1024; //in MegaBytes
 var totalsize=0;
 
@@ -18,11 +15,11 @@ var totalsize=0;
 export class AddleafComponent implements OnInit {
   sendres:any
   srcData:any
-  fileToUpload: any=[];
+  fileToUpload: any=[]
   plantName:any
-  userModel=new User('','','');
-  login_flag:any;
- //msg:string=''
+  userModel=new User('','','')
+  login_flag:any
+  smt=true
 
   constructor(private httpClient:HttpClientService, private router:Router) { 
     
@@ -41,22 +38,22 @@ export class AddleafComponent implements OnInit {
     }
     console.log(this.fileToUpload);
   }
-  /*onChangetext() {
-      var x=<HTMLInputElement>document.getElementById('plant');
-      this.plantName=x.value;
-      console.log(this.plantName);
-  }*/
-  
+    
   onsubmit()
   {
-    this.httpClient.checksignin().subscribe(
-      res=>{
-        this.login_flag=res
-        console.log(this.login_flag);
-        this.check() 
-    });
+    if(this.smt)
+    { 
+      this.smt=false
+      this.httpClient.checksignin().subscribe(
+        res=>{
+          this.login_flag=res
+          console.log(this.login_flag);
+          this.check()
+          
+      })
+    }
   }
-
+ 
   check()
   {
     if(this.login_flag)
@@ -65,43 +62,51 @@ export class AddleafComponent implements OnInit {
     this.router.navigate(['login']);
   }
 
-  async upload()
+  func1()
+  {
+    this.httpClient.sendfiledata(this.userModel).subscribe(
+        res=>{
+          this.func2()
+        })
+  }
+  async func2()
+  {
+    for(var i=0;i<this.fileToUpload.length;i++)
+    {
+      this.httpClient.sendimagedata(this.fileToUpload[i]).subscribe(
+      res=>{
+        this.sendres=res; 
+      })
+      await new Promise(resolve=>setTimeout(resolve,500));
+      console.log(i);
+    }
+    console.log('sendres');
+    alert(this.sendres);
+    this.smt=true
+    window.location.reload();
+  }
+
+  upload()
   {
     for(var i=0;i<this.fileToUpload.length;i++)
     {
      totalsize+=this.fileToUpload[i].size;
     }
 
-    if(this.fileToUpload.length>0 && this.fileToUpload.length<=10 && totalsize<=maxsize){
+    if(this.fileToUpload.length>0 && this.fileToUpload.length<=5 && totalsize<=maxsize){
       this.httpClient.sendimgname([this.plantName, this.fileToUpload.length]).subscribe(
         res=>{
-          
+          this.func1()
         }) 
-      await new Promise(resolve=>setTimeout(resolve,250));   
-      this.httpClient.sendfiledata(this.userModel).subscribe(
-        res=>{
-        })
-      await new Promise(resolve=>setTimeout(resolve,250));   
-      for(var i=0;i<this.fileToUpload.length;i++){
-          this.httpClient.sendimagedata(this.fileToUpload[i]).subscribe(
-          res=>{
-            this.sendres=res; 
-          })
-          await new Promise(resolve=>setTimeout(resolve,250));
-          console.log(i);
-        }
-        await new Promise(resolve=>setTimeout(resolve,250));
-        console.log('sendres');
-        alert(this.sendres);
-        window.location.reload();
   }
   else{
     window.location.reload();
     alert("Check image size,type and quantity");
     console.log(totalsize);
 
+    }
   }
-}
+  
 }
 
 
