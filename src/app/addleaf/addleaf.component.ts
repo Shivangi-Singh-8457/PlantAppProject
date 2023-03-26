@@ -20,6 +20,7 @@ export class AddleafComponent implements OnInit {
   userModel=new User('','','')
   login_flag:any
   smt=true
+  startIndex:any
 
   constructor(private httpClient:HttpClientService, private router:Router) { 
     
@@ -96,6 +97,7 @@ export class AddleafComponent implements OnInit {
     if(this.fileToUpload.length>0 && this.fileToUpload.length<=5 && totalsize<=maxsize){
       this.httpClient.sendimgname([this.plantName, this.fileToUpload.length]).subscribe(
         res=>{
+          this.startIndex=res
           this.func1()
         }) 
   }
