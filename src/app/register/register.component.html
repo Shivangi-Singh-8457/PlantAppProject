@@ -7,7 +7,7 @@
           <form *ngIf="flag" class="reg" #userForm="ngForm" (ngSubmit)="onsubmit(userForm)" enctype="multipart/form-data">
         <div class="formBx">
           <h2>Sign up</h2>
-            <div class="inputBx">
+          <div class="inputBx">
           <label for="email">Email Id</label> &nbsp;&nbsp;&nbsp;
           <input type="text" id="email" name="email"  placeholder="example@xyz.com" required [(ngModel)]="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$">
           </div>

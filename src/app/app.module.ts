@@ -10,7 +10,6 @@ import { HttpClientService } from './service/http-client.service';
 import { HttpInterceptorService } from './service/http-interceptor.service';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
-import { LearningModuleComponent } from './learning-module/learning-module.component';
 import { AddleafComponent } from './addleaf/addleaf.component';
 import { LearnComponent } from './learn/learn.component';
 import { CorrectionDialogComponent, ReportDialogComponent, ReviewComponent } from './review/review.component';
@@ -25,13 +24,13 @@ import { MatSelectModule } from '@angular/material/select';
 import { MatOptionModule } from '@angular/material/core';
 import { MatIconModule } from '@angular/material/icon'
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { AboutusComponent } from './aboutus/aboutus.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     IndexComponent,
     DetectComponent,
-    LearningModuleComponent,
     AddleafComponent,
     LearnComponent,
     ReviewComponent,
@@ -40,7 +39,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     LogoutComponent,
     ForgotPswdComponent,
     ReportDialogComponent,
-    CorrectionDialogComponent
+    CorrectionDialogComponent,
+    AboutusComponent
   ],
   imports: [
     BrowserModule,

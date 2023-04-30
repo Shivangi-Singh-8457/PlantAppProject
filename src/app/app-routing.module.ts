@@ -10,6 +10,7 @@ import { RegisterComponent } from './register/register.component';
 import { LoginComponent } from './login/login.component';
 import { LogoutComponent } from './logout/logout.component';
 import { ForgotPswdComponent } from './forgot-pswd/forgot-pswd.component';
+import { AboutusComponent } from './aboutus/aboutus.component';
 
 const routes: Routes = [
   {path:'index',component:IndexComponent},
@@ -22,6 +23,7 @@ const routes: Routes = [
   {path:'login',component:LoginComponent},
   {path:'logout',component:LogoutComponent},
   {path:'forgotPswd',component:ForgotPswdComponent},
+  {path:'aboutus',component:AboutusComponent},
   {path:'**',redirectTo:'index'}
 ];
 
