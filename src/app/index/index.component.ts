@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {Router} from '@angular/router';
 import { HttpClientService } from '../service/http-client.service';
+
 var menulist:any;
 var menulist1:any;
 @Component({
@@ -10,12 +11,20 @@ var menulist1:any;
 })
 export class IndexComponent implements OnInit {
   
+  
+  
   login_flag:any;
+  authService: any;
   //iscollapse=false;
   
-  constructor(private httpClient:HttpClientService, private router: Router){
- 
-  }
+  // constructor(private httpClient:HttpClientService, private router: Router, private authService: AuthenticationService){
+  //   if(this.authService.autehticatedOrValidToken())
+  //   {
+  //     this.router.navigate([''])
+  //   }
+  // }
+  
+  constructor(private httpClient:HttpClientService, private router: Router){}
 
   ngOnInit(): void {
     this.httpClient.checksignin().subscribe(
@@ -40,6 +49,7 @@ export class IndexComponent implements OnInit {
     }
   
   }
+  
   goToPage(this:any, pageName:string){
     this.router.navigate([`${pageName}`]);
   }    

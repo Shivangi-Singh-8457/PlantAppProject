@@ -2,30 +2,43 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
 
+
+// Retrieve the token from localStorage
+// Prepare the headers with the Authorization token
+var headers = new HttpHeaders({
+  'Content-Type': 'multipart/form-data',
+  // 'Content-Type': 'application/x-www-form-urlencoded',
+  'Authorization': `Bearer ${localStorage.getItem('access_token')}` // Include the JWT token here
+});
+
 @Injectable({
   providedIn: 'root'
 })
-export class HttpClientService {
-  static sendImageData(userModel: any) {
-    throw new Error('Method not implemented.');
-  }
 
+export class HttpClientService {
+  
   constructor(private httpClient : HttpClient) { }
+   
+    
 
   getfilename(query: any) {
     return this.httpClient.post<any>(`${environment.apiBaseUrl}/predict`, query);
   }
-  sendfiledata(query: any)
+  // sendfiledata(query: any)
+  // {
+  //   return this.httpClient.post<any>(`${environment.apiBaseUrl}/adddata`, query);
+  // }
+  // sendimagedata(query:any)
+  // {
+  //   return this.httpClient.post<any>(`${environment.apiBaseUrl}/imagedata`, query);
+  // }
+  // sendimgname(query:any)
+  // {
+  //   return this.httpClient.post<any>(`${environment.apiBaseUrl}/imagename`, query);
+  // }
+  addleaf(query:any)
   {
-    return this.httpClient.post<any>(`${environment.apiBaseUrl}/adddata`, query);
-  }
-  sendimagedata(query:any)
-  {
-    return this.httpClient.post<any>(`${environment.apiBaseUrl}/imagedata`, query);
-  }
-  sendimgname(query:any)
-  {
-    return this.httpClient.post<any>(`${environment.apiBaseUrl}/imagename`, query);
+    return this.httpClient.post<any>(`${environment.apiBaseUrl}/addleaf`, query);
   }
   signup(query:any)
   {
@@ -34,10 +47,6 @@ export class HttpClientService {
   registration_otp(query:any)
   {
     return this.httpClient.post<any>(`${environment.apiBaseUrl}/registration_otp`, query);
-  }
-  signin(query:any)
-  {
-    return this.httpClient.post<any>(`${environment.apiBaseUrl}/login`, query);
   }
   checkemail(query:any)
   {
@@ -51,9 +60,9 @@ export class HttpClientService {
   {
     return this.httpClient.post<any>(`${environment.apiBaseUrl}/chngpswd`, query);
   }
-  resend()
+  resend(query:any)
   {
-    return this.httpClient.get<any>(`${environment.apiBaseUrl}/resend`);
+    return this.httpClient.post<any>(`${environment.apiBaseUrl}/resend`,query);
   }
   signout()
   {

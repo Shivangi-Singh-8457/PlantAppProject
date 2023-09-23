@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 import { HttpClientService } from '../service/http-client.service';
 import { MatDialog, MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import Swal from 'sweetalert2';
+import { NONE_TYPE } from '@angular/compiler';
 
 @Component({
   selector: 'app-review',
@@ -31,12 +32,12 @@ export class ReviewComponent implements OnInit {
   correction_result:any={}
 
   constructor(private httpClient:HttpClientService, private router:Router, public dialog: MatDialog){
+    this.start();
+    this.needhelp();
     this.httpClient.checksignin().subscribe(
       res=>{
         this.login_flag=res
         console.log(this.login_flag);
-        this.start();
-        this.needhelp();
     });
   }
 
@@ -45,7 +46,7 @@ export class ReviewComponent implements OnInit {
   }
   needhelp()
   {
-     Swal.fire("Here you will find some options like Upvote, Downvote , Report and Correction \n if you think Plant name and its Characteristics is correct then kindly Upvote it \n if you think folder name is not correct then Downvote it \n if you think folder name is violating some rules or not valid then Report it with suitable given option otherwise select other if option not available \n If you want to give some specific correction then you can choose correction option \n Same will be applied for images also ");
+    Swal.fire("Here you will find some options like Upvote, Downvote , Report and Correction \n if you think Plant name and its Characteristics is correct then kindly Upvote it \n if you think folder name is not correct then Downvote it \n if you think folder name is violating some rules or not valid then Report it with suitable given option otherwise select other if option not available \n If you want to give some specific correction then you can choose correction option \n Same will be applied for images also ");
   }
   start(){
     this.httpClient.getfolders().subscribe(
@@ -80,7 +81,7 @@ export class ReviewComponent implements OnInit {
     { 
       if(ch=='r' && this.report_reason!=undefined)
       {
-        this.httpClient.folder_vote([id,ch,this.report_reason]).subscribe(
+        this.httpClient.folder_vote({id:id, ch:ch, report_reason:this.report_reason}).subscribe(
           res=>{
             this.x[id]=res[0];
             if(!(id in this.folderResult))
@@ -98,7 +99,7 @@ export class ReviewComponent implements OnInit {
       }
       else if(ch=='ur')
       {
-        this.httpClient.folder_vote([id,'r']).subscribe(res=>{
+        this.httpClient.folder_vote({id:id, ch:'r', report_reason:""}).subscribe(res=>{
           this.x[id]=res[0];
           this.folderResult[id][0]=res[1];
           this.folderResult[id][1]=res[2];
@@ -107,7 +108,8 @@ export class ReviewComponent implements OnInit {
       }
       else if((!(id in this.folderResult) || this.folderResult[id][1]==0) && (ch=='u' || ch=='d'))
       { 
-        this.httpClient.folder_vote([id,ch]).subscribe(res=>{
+        console.log(typeof(id), typeof(ch))
+        this.httpClient.folder_vote({id:id, ch:ch, report_reason:""}).subscribe(res=>{
           this.x[id]=res[0];
           if(!(id in this.folderResult))
           {
@@ -131,7 +133,7 @@ export class ReviewComponent implements OnInit {
       var key=id.toString()+"_"+ind.toString();
       if(ch=='r' && this.report_reason!=undefined)
       {
-        this.httpClient.image_vote([id,ind,ch,this.report_reason]).subscribe(res=>{
+        this.httpClient.image_vote({id:id, ind:ind, ch:ch, report_reason:this.report_reason}).subscribe(res=>{
           this.y[key]=res[0];
           if(!(key in this.imgResult))
           {
@@ -147,7 +149,7 @@ export class ReviewComponent implements OnInit {
       }
       else if(ch=='ur') 
       {
-        this.httpClient.image_vote([id,ind,'r']).subscribe(res=>{
+        this.httpClient.image_vote({id:id, ind:ind, ch:'r', report_reason:""}).subscribe(res=>{
           this.y[key]=res[0];
           this.imgResult[key][0]=res[1];
           this.imgResult[key][1]=res[2];
@@ -156,7 +158,7 @@ export class ReviewComponent implements OnInit {
       }
       else if((!(key in this.imgResult) || this.imgResult[key][1]==0) && (ch=='u' || ch=='d'))
       {  
-        this.httpClient.image_vote([id,ind,ch]).subscribe(res=>{
+        this.httpClient.image_vote({id:id, ind:ind, ch:ch, report_reason:""}).subscribe(res=>{
           console.log(res);
           this.y[key]=res[0];
           if(!(key in this.imgResult))
@@ -177,13 +179,13 @@ export class ReviewComponent implements OnInit {
  }
  fetchComments(id:any)
  {
-    this.httpClient.get_comments(id).subscribe(res=>{this.comments[id]=res});
+    this.httpClient.get_comments({id:id}).subscribe(res=>{this.comments[id]=res});
  }
  saveComment(commentform:NgForm, id:any)
  {
   if(this.login_flag)
   {
-    this.httpClient.save_comment([id,this.msg]).subscribe(res=>{});
+    this.httpClient.save_comment({id:id, msg:this.msg}).subscribe(res=>{});
     commentform.reset();
   }
   else
@@ -221,7 +223,7 @@ export class ReviewComponent implements OnInit {
   {
       var key=id.toString()+"_"+this.feature;
       console.log(key)
-      this.httpClient.save_corrections([id,this.feature,this.corrected]).subscribe(res=>{
+      this.httpClient.save_corrections({id:id, characteristics:this.feature, suggestion:this.corrected}).subscribe(res=>{
       console.log(res); 
       alert(res[0]);
       if(res[1]!="")
@@ -250,7 +252,7 @@ export class ReviewComponent implements OnInit {
   if(this.login_flag)
     {
       var key=id.toString()+"_"+characteristics+"_"+suggestion;
-          this.httpClient.correction_vote([id,characteristics,suggestion,ch]).subscribe(res=>{
+          this.httpClient.correction_vote({id:id, characteristics:characteristics, suggestion:suggestion, ch:ch}).subscribe(res=>{
           this.z[key]=res[0];
           this.correction_result[key]=res[1];
           this.ngOnInit();

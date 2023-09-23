@@ -43,7 +43,7 @@
       <br>
     <div class="row" >
       <div class="card" class="col-auto" *ngFor="let i of imagelist[folder[0]]"> &nbsp;
-          <img src="http://localhost:5000/.//static/temp_images/{{folder[1]}}/img_{{i}}.png" class="card-img-top setimg" alt="...">
+          <img src="http://localhost:5000/./static/temp_images/{{folder[1]}}/img_{{i}}.png" class="card-img-top setimg" alt="...">
         <div class="container__3-ij">
           <div title="Upvote" *ngIf="check_imgVote(folder[0],i,'u'); else removeUP">
             <mat-icon class="up" type="submit" (click)="imgVote(folder[0],i,'u')" >thumb_up</mat-icon>
