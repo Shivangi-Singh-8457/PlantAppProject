@@ -5,16 +5,12 @@ from fastapi.param_functions import Form
 from flask import Flask, render_template, request
 import MySQLdb
 from pydantic import BaseModel
-db = MySQLdb.connect("localhost", "root", "", "project",8111)
-# from flask import Flask
+db = MySQLdb.connect("localhost", "root", "", "db",port_no)
 import mysql.connector
-# from flask_mail import Mail, Message
 import json
-# import glob
 import os
 import base64
 import random
-# from flask_cors import CORS,cross_origin
 from fastapi import FastAPI, Depends, HTTPException, status
 from fastapi.security import OAuth2PasswordBearer
 from jose import JWTError
@@ -66,11 +62,6 @@ pwd_context = CryptContext(schemes=["bcrypt"], deprecated="auto")
 # Mount the static files directory
 app.mount("/static", StaticFiles(directory="./static/"), name="static")
 BASE_DIRECTORY = "./static/temp_images/"
-global user
-user=""
-global login_flag
-login_flag=False
-
 
 #generating sql commands
 def create_sql_comand(keys,value):
@@ -389,9 +380,9 @@ fastmail = FastMail(conf)
 async def sendMail(otp, recipient_email):
     print(otp+" "+recipient_email)
     message = MessageSchema(
-        subject="OTP from Vangyaan",
+        subject="subject",
         recipients=[recipient_email],
-        body="This email is from Vangyaan.\nyour OTP is "+otp,
+        body="body",
         subtype="plain"
     )
     try:
@@ -484,7 +475,7 @@ class UserLogin(BaseModel):
 
 @app.post("/login")
 def signin(user: UserLogin):
-    command = "select cast(aes_decrypt(unhex(password), 'PLANT') as char) from users where user_id='"+user.email+"'"
+    command = "select cast(aes_decrypt(unhex(password), 'key') as char) from users where user_id='"+user.email+"'"
     mycursor = db.cursor()
     print(command)
     try:
@@ -540,7 +531,7 @@ async def checkemail(data: VerifyEmail):
 
 @app.post('/chngpswd')
 def chngpswd(user: UserLogin):
-    command = "update users set `password`="+f"hex(aes_encrypt('{user.password}','PLANT')) where user_id='{user.email}'"
+    command = "update users set `password`="+f"hex(aes_encrypt('{user.password}','key')) where user_id='{user.email}'"
     mycursor = db.cursor()  
     print(command)
     try:
@@ -911,6 +902,7 @@ import uvicorn
 if __name__ == '__main__':
     uvicorn.run("app:app", host="127.0.0.1", port=5000, reload=True)
 #    app.run(host='0.0.0.0',debug=True)
+
 
 
 
