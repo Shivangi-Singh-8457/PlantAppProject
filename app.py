@@ -2,7 +2,6 @@ from fastapi.staticfiles import StaticFiles
 from typing import List, Annotated
 from fastapi import File, UploadFile
 from fastapi.param_functions import Form
-from flask import Flask, render_template, request
 import MySQLdb
 from pydantic import BaseModel
 db = MySQLdb.connect("localhost", "root", "", "db",port_no)
@@ -902,6 +901,7 @@ import uvicorn
 if __name__ == '__main__':
     uvicorn.run("app:app", host="127.0.0.1", port=5000, reload=True)
 #    app.run(host='0.0.0.0',debug=True)
+
 
 
 
