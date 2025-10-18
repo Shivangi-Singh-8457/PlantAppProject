@@ -4,7 +4,7 @@ import os
 import shutil
 import glob
 import MySQLdb
-db = MySQLdb.connect("localhost", "root", "", "project",8111)
+db = MySQLdb.connect("localhost", "root", "", "db",port_no)
 print("db_connection established")
 SERVER = "http://localhost:5000/"
 BASE_DIRECTORY1 = ".//static/temp_images/"
@@ -117,3 +117,4 @@ while True:
 
 	schedule.run_pending()
 	time.sleep(1/2)
+
